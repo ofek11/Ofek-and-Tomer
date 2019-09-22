@@ -7,6 +7,7 @@ def is_prime_num(num):
         if num%i==0:
             return False
     return True
+
 counter=0
 for i in range(1,2_000_000):
     if is_prime_num(i):
