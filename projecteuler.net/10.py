@@ -8,9 +8,8 @@ def is_prime_num(num):
             return False
     return True
 counter=0
-number=0
 for i in range(1,2_000_000):
-    if is_prime_num(i)==True:
+    if is_prime_num(i):
         counter+=i
     print(i)
-print('end',counter)
+print('Number of primes below 2,000,000',counter)
