@@ -1,16 +1,25 @@
-#https://projecteuler.net/problem=10
+# https://projecteuler.net/problem=10
+import time
+
+
 def is_prime_num(num):
     import math
-    i=1
-    for i in range(1,int(math.sqrt(num+1))):
-        i+=1
-        if num%i==0:
+    sq = int(math.sqrt(num))
+    global prime_numbers
+    for j in prime_numbers:
+        if num % j == 0:
             return False
+        elif j >= sq:
+            break
+    prime_numbers.append(num)
     return True
 
-counter=0
-for i in range(1,2_000_000):
-    if is_prime_num(i):
-        counter+=i
-    print(i)
-print('Number of primes below 2,000,000',counter)
+
+prime_numbers = [2]
+start_time = time.time()
+for number in range(2, 2000000):
+    is_prime_num(number)
+    if number % 10000 == 0:
+        print(number)
+print("--- %s seconds ---" % (time.time() - start_time))
+print('Number of primes below 2,000,000:', sum(prime_numbers))
