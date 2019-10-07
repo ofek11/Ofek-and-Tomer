@@ -1,11 +1,10 @@
 def Letter_To_Number(w):
-    c = 0
+    number = 0
     for letter in w:
         if letter == '"':
             continue
-        number = ord(letter) - ord('A') + 1
-        c += number
-    return c
+        number += ord(letter) - ord('A') + 1
+    return number
 
 
 with open("p022_names.txt", 'r') as file_names:
@@ -13,8 +12,8 @@ with open("p022_names.txt", 'r') as file_names:
     data.sort()
 
 i = 1
+counter = 0
 for word in data:
-    counter = 0
-    data[i - 1] = i * Letter_To_Number(word)
+    counter += i * Letter_To_Number(word)
     i += 1
-print(sum(data))
+print(counter)
