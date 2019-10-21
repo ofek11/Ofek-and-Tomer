@@ -1,21 +1,21 @@
 # https://projecteuler.net/problem=10
 import time
+import math
 
 
 def is_prime_num(num):
-    import math
     sq = int(math.sqrt(num))
-    global prime_numbers
-    for j in prime_numbers:
+    global primes
+    for j in primes:
         if num % j == 0:
             return False
         elif j >= sq:
             break
-    prime_numbers.append(num)
+    primes.append(num)
     return True
 
 
-prime_numbers = [2]
+primes = [2]
 start_time = time.time()
 for number in range(2, 2000000):
     is_prime_num(number)
